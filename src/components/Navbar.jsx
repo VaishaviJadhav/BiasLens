@@ -1,25 +1,23 @@
 import React from 'react';
-import { Eye, PlusCircle, Sparkles, RefreshCw, BarChart2 } from 'lucide-react';
+import { Eye, RefreshCw } from 'lucide-react';
 
 export default function Navbar({ onOpenCustomModal, onResetBenchmark }) {
   return (
     <nav className="navbar">
       <div className="brand">
         <div className="brand-icon">
-          <Eye size={24} />
+          <Eye size={18} />
         </div>
-        <div>
-          <div className="brand-title gradient-text">BiasLens</div>
-        </div>
-        <span className="brand-badge pulse-badge">AI NLP Core v2.4</span>
+        <span className="brand-title gradient-text">BiasLens</span>
+        <span className="brand-badge pulse-badge">NLP v2.4</span>
       </div>
 
       <div className="nav-actions">
-        <button className="btn-secondary" onClick={onResetBenchmark} title="Reset to default benchmark story">
-          <RefreshCw size={16} /> Reset
+        <button className="btn-secondary" onClick={onResetBenchmark} title="Reset to benchmark">
+          <RefreshCw size={14} /> Reset
         </button>
         <button className="btn-primary" onClick={onOpenCustomModal}>
-          <PlusCircle size={18} /> Analyze Custom Articles
+          + Custom Articles
         </button>
       </div>
     </nav>

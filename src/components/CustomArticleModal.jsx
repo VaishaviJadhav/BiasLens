@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, Sparkles, Send, FileText } from 'lucide-react';
+import { X, Sparkles, FileText } from 'lucide-react';
 
 export default function CustomArticleModal({ isOpen, onClose, onSubmitCustomArticles }) {
   const [nameA, setNameA] = useState('Outlet Alpha');
@@ -24,35 +24,49 @@ export default function CustomArticleModal({ isOpen, onClose, onSubmitCustomArti
   };
 
   return (
-    <div className="modal-wrapper">
-      <div className="modal-card">
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
-            <FileText size={24} color="var(--accent-cyan)" />
-            <h2 style={{ fontSize: '1.4rem' }}>Analyze Custom News Articles</h2>
+    <div className="modal-wrapper" onClick={onClose}>
+      <div className="modal-card" onClick={(e) => e.stopPropagation()}>
+        <div className="modal-header-bar">
+          <div className="modal-header-title">
+            <FileText size={22} color="var(--blue)" />
+            <h2>Analyze Custom Articles</h2>
           </div>
-          <button onClick={onClose} style={{ background: 'none', border: 'none', color: 'var(--text-muted)', cursor: 'pointer' }}>
-            <X size={24} />
+          <button className="modal-close-btn" onClick={onClose} aria-label="Close modal">
+            <X size={20} />
           </button>
         </div>
 
+        <p className="modal-subtitle-text">
+          Input article content from two different news outlets to run a side-by-side NLP bias comparison.
+        </p>
+
         <form onSubmit={handleSubmit}>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem', marginBottom: '1.5rem' }}>
-            {/* Article A */}
-            <div style={{ background: 'rgba(0, 0, 0, 0.2)', padding: '1.2rem', borderRadius: '12px', border: '1px solid var(--border-glass)' }}>
-              <h3 style={{ fontSize: '1.1rem', color: '#60a5fa', marginBottom: '1rem' }}>Article A (First Outlet)</h3>
+          <div className="modal-grid-cols">
+            {/* Article A Panel */}
+            <div className="modal-outlet-box modal-outlet-a">
+              <div className="modal-outlet-header">
+                <span className="modal-outlet-dot dot-blue" />
+                <h3>Article A (First Outlet)</h3>
+              </div>
 
               <div className="form-group">
                 <label className="form-label">Outlet Name</label>
-                <input className="form-input" value={nameA} onChange={e => setNameA(e.target.value)} required />
+                <input
+                  type="text"
+                  className="form-input"
+                  value={nameA}
+                  onChange={(e) => setNameA(e.target.value)}
+                  placeholder="e.g. Daily Chronicle"
+                  required
+                />
               </div>
 
               <div className="form-group">
                 <label className="form-label">Political Stance</label>
-                <select className="form-input" value={stanceA} onChange={e => setStanceA(e.target.value)}>
+                <select className="form-input" value={stanceA} onChange={(e) => setStanceA(e.target.value)}>
                   <option value="left">Left</option>
                   <option value="center-left">Center-Left</option>
-                  <option value="center">Center</option>
+                  <option value="center">Center / Neutral</option>
                   <option value="center-right">Center-Right</option>
                   <option value="right">Right</option>
                 </select>
@@ -60,30 +74,54 @@ export default function CustomArticleModal({ isOpen, onClose, onSubmitCustomArti
 
               <div className="form-group">
                 <label className="form-label">Headline</label>
-                <input className="form-input" value={headlineA} onChange={e => setHeadlineA(e.target.value)} required />
+                <input
+                  type="text"
+                  className="form-input"
+                  value={headlineA}
+                  onChange={(e) => setHeadlineA(e.target.value)}
+                  placeholder="Article headline..."
+                  required
+                />
               </div>
 
               <div className="form-group">
-                <label className="form-label">Article Content</label>
-                <textarea className="form-textarea" rows={6} value={contentA} onChange={e => setContentA(e.target.value)} required />
+                <label className="form-label">Article Text Content</label>
+                <textarea
+                  className="form-textarea"
+                  rows={5}
+                  value={contentA}
+                  onChange={(e) => setContentA(e.target.value)}
+                  placeholder="Paste article body here..."
+                  required
+                />
               </div>
             </div>
 
-            {/* Article B */}
-            <div style={{ background: 'rgba(0, 0, 0, 0.2)', padding: '1.2rem', borderRadius: '12px', border: '1px solid var(--border-glass)' }}>
-              <h3 style={{ fontSize: '1.1rem', color: '#f87171', marginBottom: '1rem' }}>Article B (Second Outlet)</h3>
+            {/* Article B Panel */}
+            <div className="modal-outlet-box modal-outlet-b">
+              <div className="modal-outlet-header">
+                <span className="modal-outlet-dot dot-red" />
+                <h3>Article B (Second Outlet)</h3>
+              </div>
 
               <div className="form-group">
                 <label className="form-label">Outlet Name</label>
-                <input className="form-input" value={nameB} onChange={e => setNameB(e.target.value)} required />
+                <input
+                  type="text"
+                  className="form-input"
+                  value={nameB}
+                  onChange={(e) => setNameB(e.target.value)}
+                  placeholder="e.g. Financial Times"
+                  required
+                />
               </div>
 
               <div className="form-group">
                 <label className="form-label">Political Stance</label>
-                <select className="form-input" value={stanceB} onChange={e => setStanceB(e.target.value)}>
+                <select className="form-input" value={stanceB} onChange={(e) => setStanceB(e.target.value)}>
                   <option value="left">Left</option>
                   <option value="center-left">Center-Left</option>
-                  <option value="center">Center</option>
+                  <option value="center">Center / Neutral</option>
                   <option value="center-right">Center-Right</option>
                   <option value="right">Right</option>
                 </select>
@@ -91,20 +129,36 @@ export default function CustomArticleModal({ isOpen, onClose, onSubmitCustomArti
 
               <div className="form-group">
                 <label className="form-label">Headline</label>
-                <input className="form-input" value={headlineB} onChange={e => setHeadlineB(e.target.value)} required />
+                <input
+                  type="text"
+                  className="form-input"
+                  value={headlineB}
+                  onChange={(e) => setHeadlineB(e.target.value)}
+                  placeholder="Article headline..."
+                  required
+                />
               </div>
 
               <div className="form-group">
-                <label className="form-label">Article Content</label>
-                <textarea className="form-textarea" rows={6} value={contentB} onChange={e => setContentB(e.target.value)} required />
+                <label className="form-label">Article Text Content</label>
+                <textarea
+                  className="form-textarea"
+                  rows={5}
+                  value={contentB}
+                  onChange={(e) => setContentB(e.target.value)}
+                  placeholder="Paste article body here..."
+                  required
+                />
               </div>
             </div>
           </div>
 
-          <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '1rem' }}>
-            <button type="button" className="btn-secondary" onClick={onClose}>Cancel</button>
+          <div className="modal-footer-bar">
+            <button type="button" className="btn-secondary" onClick={onClose}>
+              Cancel
+            </button>
             <button type="submit" className="btn-primary">
-              <Sparkles size={18} /> Run Live NLP Bias Analysis
+              <Sparkles size={16} /> Run Live Bias Analysis
             </button>
           </div>
         </form>
