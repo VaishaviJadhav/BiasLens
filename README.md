@@ -1,6 +1,6 @@
  <div align="center">
 
-# 🔎 BiasLens
+#  BiasLens
 
 ### Explainable News Bias & Framing Analysis
 
@@ -16,7 +16,7 @@ A Python-based project exploring textual signals, headline–article differences
 
 ---
 
-## 🎯 The Problem
+##  The Problem
 
 News headlines shape the way readers interpret events. Sometimes, the language or emphasis in a headline differs from the tone and context of the full article.
 
@@ -31,27 +31,27 @@ Manual analysis can be time-consuming, while relying on a single sentiment score
 
 **BiasLens explores a more structured and interpretable approach to examining these textual signals.**
 
-## 💡 Our Approach
+##  Our Approach
 
 BiasLens analyzes a news headline alongside its corresponding article body to examine potential differences in sentiment, language, and framing.
 
 Instead of treating an automated score as proof of bias, the project aims to make relevant textual indicators easier to inspect and interpret.
 
-### ✨ Key Analysis Areas
+###  Key Analysis Areas
 
 | Feature | Purpose |
 |---|---|
-| 📝 Text Preprocessing | Prepare headline and article text for analysis |
-| 💬 Sentiment Analysis | Examine the tone of the text |
-| ⚖️ Headline–Body Comparison | Identify potential differences in tone and emphasis |
-| 👥 Entity Framing | Examine how named people and organizations are represented |
-| 🔍 Explainability | Make the indicators behind a result easier to review |
+|  Text Preprocessing | Prepare headline and article text for analysis |
+|  Sentiment Analysis | Examine the tone of the text |
+|  Headline–Body Comparison | Identify potential differences in tone and emphasis |
+|  Entity Framing | Examine how named people and organizations are represented |
+|  Explainability | Make the indicators behind a result easier to review |
 
 *The table describes the intended analysis areas. Each feature should be presented as implemented only when the corresponding functionality exists in the code.*
 
 ---
 
-## 🏗️ System Architecture
+##  System Architecture
 
 The intended processing workflow is:
 
@@ -94,7 +94,7 @@ The intended processing workflow is:
 
 This pipeline illustrates the project design; it does not imply that every stage has already been implemented.
 
-## 🧰 Technology Stack
+##  Technology Stack
 
 The final technology list should reflect the libraries used in the repository.
 
@@ -107,7 +107,7 @@ The final technology list should reflect the libraries used in the repository.
 
 ---
 
-## 📂 Project Structure
+##  Project Structure
 
 An example structure for organizing the project is shown below. Adjust it to match your existing files.
 
@@ -135,7 +135,7 @@ BiasLens/
 └── outputs/
 ```
 
-## 🚀 Getting Started
+##  Getting Started
 
 ### Prerequisites
 
@@ -173,7 +173,7 @@ Run the actual notebook or Python entry-point script provided in the repository.
 
 ---
 
-## 📊 Understanding the Results
+##  Understanding the Results
 
 A useful BiasLens analysis should help readers inspect the text rather than blindly trust a label.
 
@@ -191,7 +191,7 @@ These are examples of how results can be documented. Actual output depends on th
 
 ---
 
-## 🔬 Evaluation Strategy
+## Evaluation Strategy
 
 To assess the usefulness of BiasLens, the project can be evaluated using labelled news examples and human-reviewed annotations.
 
@@ -205,7 +205,7 @@ Potential evaluation steps include:
 
 Where suitable labelled data is available, metrics such as precision, recall, and F1-score can be reported. Performance figures should only be added after evaluation.
 
-## ⚠️ Limitations & Responsible Use
+##  Limitations & Responsible Use
 
 BiasLens is an exploratory text-analysis project, not an automated authority on journalistic integrity.
 
@@ -221,7 +221,7 @@ Human judgement and the original article's context remain essential.
 
 ---
 
-## 🛣️ Future Improvements
+##  Future Improvements
 
 - [ ] Evaluate against labelled news datasets.
 - [ ] Add reproducible examples and automated tests.
@@ -234,7 +234,7 @@ Human judgement and the original article's context remain essential.
 
 ---
 
-## 👩‍💻 Author
+##  Author
 
 **Vaishnavi Jadhav**
 
